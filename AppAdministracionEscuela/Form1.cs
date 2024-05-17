@@ -16,7 +16,7 @@ namespace AppAdministracionEscuela
             lstAlumnos.Columns.Add("Ap Paterno");
             lstAlumnos.Columns.Add("Ap Materno");
             lstAlumnos.Columns.Add("Carrera");
-            lstAlumnos.Columns.Add("CURP"); // Agregar la columna CURP
+            lstAlumnos.Columns.Add("CURP"); 
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -36,7 +36,6 @@ namespace AppAdministracionEscuela
                         {
                             BaseDatos.Alumnos[i] = JsonConvert.DeserializeObject<Alumno>(informacion);
 
-                            // Abre el formulario frmAgregarAlumno para datos adicionales
                             frmAgregarAlumno agregarAlumno = new frmAgregarAlumno(BaseDatos.Alumnos[i]);
                             if (agregarAlumno.ShowDialog() == DialogResult.OK)
                             {
@@ -54,12 +53,12 @@ namespace AppAdministracionEscuela
                     else
                     {
                         MessageBox.Show("No hay espacio para más alumnos.");
-                        break; // Salir del bucle si no hay espacio
+                        break; 
                     }
                 }
                 else
                 {
-                    break; // Salir del bucle si se cancela el formulario
+                    break; 
                 }
             }
         }
@@ -81,7 +80,7 @@ namespace AppAdministracionEscuela
                     item.SubItems.Add(alumno.App);
                     item.SubItems.Add(alumno.Apm);
                     item.SubItems.Add(alumno.Carrera);
-                    item.SubItems.Add(alumno.Curp); // Agregar la CURP al item
+                    item.SubItems.Add(alumno.Curp); 
 
                     lstAlumnos.Items.Add(item);
                 }

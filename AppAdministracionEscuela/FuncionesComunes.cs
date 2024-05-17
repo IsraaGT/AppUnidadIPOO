@@ -24,7 +24,7 @@ namespace AppAdministracionEscuela
                         return c.ToString();
                     }
                 }
-                return "X"; // Retorna 'X' si no se encuentra una consonante interna
+                return "X"; 
             }
 
             persona.Curp = persona.App.Substring(0, 2).ToUpper() +
@@ -36,9 +36,8 @@ namespace AppAdministracionEscuela
                            primeraConsonanteInterna(persona.App) +
                            primeraConsonanteInterna(persona.Apm) +
                            primeraConsonanteInterna(persona.Nombre) +
-                           "00"; // Homoclave simple para evitar duplicidades, en lugar de "00" se debería calcular adecuadamente
-
-            // Validación simple para evitar palabras inapropiadas
+                           "00"; 
+           
             if (persona.Curp.Contains("PUTO"))
             {
                 persona.Curp = persona.Curp.Replace("O", "X");

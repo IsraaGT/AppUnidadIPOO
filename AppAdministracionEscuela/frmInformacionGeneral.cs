@@ -68,7 +68,6 @@ namespace AppAdministracionEscuela
 
         private bool ValidarDatos()
         {
-            // Validar que ningún campo esté vacío
             foreach (Control control in this.Controls)
             {
                 if (control is TextBox && string.IsNullOrWhiteSpace(control.Text))
@@ -78,28 +77,24 @@ namespace AppAdministracionEscuela
                 }
             }
 
-            // Validar que el número de teléfono tenga exactamente 10 dígitos
             if (txtTelefono.Text.Length != 10 || !txtTelefono.Text.All(char.IsDigit))
             {
                 MessageBox.Show("El número de teléfono debe constar de 10 dígitos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 
-            // Validar que el email contenga un "@" y al menos un punto "."
             if (!txtEmail.Text.Contains("@") || !txtEmail.Text.Contains("."))
             {
                 MessageBox.Show("El correo electrónico debe contener un '@' y al menos un punto '.'", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 
-            // Validar que se haya especificado el sexo
             if (!rdHombre.Checked && !rdMujer.Checked)
             {
                 MessageBox.Show("Especifique el sexo.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 
-            // Validar que los campos de texto no contengan números
             if (txtNombre.Text.Any(char.IsDigit) ||
                 txtApellidoPaterno.Text.Any(char.IsDigit) ||
                 txtApellidoMaterno.Text.Any(char.IsDigit) ||
@@ -116,7 +111,6 @@ namespace AppAdministracionEscuela
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
-            // Aquí puedes manejar los cambios en el DateTimePicker, si es necesario
         }
     }
 }
